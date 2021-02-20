@@ -3,8 +3,8 @@
 <%@page import="com.javaEdu.pj.dto.FDto"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="com.javaEdu.pj.dto.BDto"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
 	BDto bdto = (BDto)request.getAttribute("content_view");
 	String login_id = null;
@@ -31,8 +31,8 @@
 	try{
 		Integer.parseInt(PN);
 	}catch(Exception e){
-		session.setAttribute("messageType", "����");
-		session.setAttribute("messageContent", "������ ��ȣ�� �߸��Ǿ����ϴ�.");
+		session.setAttribute("messageType", "오류");
+		session.setAttribute("messageContent", "페이지 번호가 잘못되었습니다.");
 		response.sendRedirect("list.do"); 
 	}
 %>
@@ -41,11 +41,11 @@
 <head>
 <meta charset="EUC-KR">
 <meta charset="EUC-KR">
-<!-- css ���� -->
+<!-- css 파일 -->
 <link href="${pageContext.request.contextPath}/css/css_list.css?v=3"
 	rel="stylesheet" type="text/css">
 
-<!-- bootstrap ���� �ٲ�� ��-->
+<!-- bootstrap 추후 바꿔야 함-->
 <meta name="viewport" content="width=dievice-width", initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>Insert title here</title>
@@ -56,7 +56,7 @@
 	<script type="text/javascript" src="js/myPage.js"></script>
 	
 	
-	<!-- bootstrap ���� �ٲ�� ��--> 
+	<!-- bootstrap 추후 바꿔야 함--> 
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
@@ -66,7 +66,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<!-- bootstrap ���� Ȩ��ư-->
+			<!-- bootstrap 맨위 홈버튼-->
 			<div class="navbar-brand-div">
 				<a class="navbar-brand" href="Main.jsp">
 					<img src="<%=request.getContextPath()%>/img/logo.png" alt="" width="160px" height="100%">
@@ -75,33 +75,33 @@
 			
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<!-- bootstrap Ȩ��ư ������ ��Ÿ side menu-->
+			<!-- bootstrap 홈버튼 오른쪽 기타 side menu-->
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false"> Ŀ�´�Ƽ <span class="caret"></span></a>
+						aria-expanded="false"> 커뮤니티 <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-					<!-- li class="active" �ش� ��ġ�� ��� ��Ƽ��� Ȱ��ȭ ���Ѿ��Ѵ� -->
-						<li><a href="list.do">�ڷ��</a></li>
+					<!-- li class="active" 해당 위치일 경우 액티브로 활성화 시켜야한다 -->
+						<li><a href="list.do">자료실</a></li>
 						<li><a href="QAlist.do">Q/A</a></li>
 					</ul>
 				</li>
 			</ul>
-			<!-- bootstrap �ֻ�� ������ ��ӹڽ� �޴�-->
+			<!-- bootstrap 최상단 오른쪽 드롭박스 메뉴-->
 			<ul class="nav navbar-nav navbar-right">
 				<%
 					if (session.getAttribute("ValidMem") != null) {
 						id = (String)session.getAttribute("id");
 				%>
-				<li><a href="logout.do">�α׾ƿ�</a></li>
-				<li><a href="user_modify.do">���� ������</a></li>
+				<li><a href="logout.do">로그아웃</a></li>
+				<li><a href="user_modify.do">마이 페이지</a></li>
 				<%
 					} else {
 				%>
 
-				<li><a href="login.do">�α���</a></li>
-				<li><a href="join.do">ȸ������</a></li>
+				<li><a href="login.do">로그인</a></li>
+				<li><a href="join.do">회원가입</a></li>
 				<%
 					}
 				%>
@@ -117,7 +117,7 @@
 	
 	<div id="sub_visual">
 		<div>
-			<h2><b>Ŀ�´�Ƽ</b></h2>
+			<h2><b>커뮤니티</b></h2>
 		</div>
 	</div>
 	
@@ -129,7 +129,7 @@
 		<input type="radio" id="list1" name="show" onclick="list1_click()" checked="checked" /> <br/>
  			<input type="radio" id="list2" name="show"  onclick="list2_click()" /><br/>
  			<div class="tab">
-			    <label for="list1"> �ڷ�� </label>
+			    <label for="list1"> 자료실 </label>
 			    <label for="list2"> Q/A </label> 
 			</div>
 		</div>
@@ -138,16 +138,16 @@
 			<form class="table-from" action="bcontent_view.do?bid=<%= 1 %>" method="get">
 			
 				<select name="searchType">
-					<option value="title" <% if(searchType.equals("title")) out.print("selected"); %>> ���� </option>
-					<option value="writerId" <% if(searchType.equals("writerId")) out.print("selected"); %>> �ۼ��� </option>
+					<option value="title" <% if(searchType.equals("title")) out.print("selected"); %>> 제목 </option>
+					<option value="writerId" <% if(searchType.equals("writerId")) out.print("selected"); %>> 작성자 </option>
 				</select>
 				<input class="data_input" type = "text" name="search" size = "20" value="<%= search %>">
-				<input class="btn btn-search" type="submit" value="�˻�"/>
+				<input class="btn btn-search" type="submit" value="검색"/>
 				
 			</form>
 		</div>
 		<div class="right_side">
-		<h2><b>�ڷ��</b></h2>
+		<h2><b>자료실</b></h2>
 			<table cellpadding="10" cellspacion="0" class="write_table">
 			
 					<%
@@ -160,15 +160,15 @@
 					<input type="hidden" name="bId" value="${content_view.bId}">
 					<input type="hidden" name="id" value="${content_view.id}" >
 					<tr>
-						<td class="left_td"> ���� </td>
+						<td class="left_td"> 제목 </td>
 						<td><b> <input type="text" id="bTitle_input" name="bTitle" value="${content_view.bTitle}" <% if(!(id.equals(login_id))) out.print("disabled"); %>> </b></td>
 					</tr>
 					<tr>
-						<td class="left_td"> �ۼ��� </td>
+						<td class="left_td"> 작성자 </td>
 						<td> <input type="text" id="bWriter" name="id_view" value="${content_view.id}" disabled="disabled"> </td>
 					</tr>
 					<tr>
-						<td class="left_td"> ���� </td>
+						<td class="left_td"> 내용 </td>
 						<td> <textarea rows="10" name="bContent" <% if( !(id.equals(login_id))) out.print("disabled"); %> >${content_view.bContent} </textarea> </td>
 					</tr>
 					<tr>
@@ -176,8 +176,8 @@
 						if((bdto.getfId() != -1)){
 							FDto fdto = (FDto)request.getAttribute("fileInfo");
 					%>
-						<td class="left_td">�ڷ�</td>				
-						<td> <a href="file_Down.do?bId=<%=bid %>&fileRealName=<%=fdto.getFileRealName()%>"><%=fdto.getFileRealName()%> �ٿ�ε�</a> </td>
+						<td class="left_td">자료</td>				
+						<td> <a href="file_Down.do?bId=<%=bid %>&fileRealName=<%=fdto.getFileRealName()%>"><%=fdto.getFileRealName()%> 다운로드</a> </td>
 					<%
 						}
 					%>
@@ -188,13 +188,13 @@
 							if(id.equals(login_id)){
 							%>
 							
-								<input type="submit" value="����"> &nbsp;&nbsp;
-								<a href="delete.do?bId=${content_view.bId }">����</a> &nbsp;&nbsp;
+								<input type="submit" value="수정"> &nbsp;&nbsp;
+								<a href="delete.do?bId=${content_view.bId }">삭제</a> &nbsp;&nbsp;
 							<%
 									}
 								
 							%>
-							<a href="list.do">��Ϻ���</a>
+							<a href="list.do">목록보기</a>
 						</td>
 					</tr>
 				</form>
@@ -219,9 +219,9 @@
 				<img src="<%=request.getContextPath()%>/img/under_logo.png"></img>
 			</div>
 			<div>
-				<address>  ��û���� ȫ���� ȫ�ϸ� �泲��� </address>
+				<address>  충청남도 홍성군 홍북면 충남대로 </address>
 				<address><span>Help desk 070.1234.5678, 070.1586.3578</span></address>
-				<p class="copy"> Copyright (C) ��û���� ����Ǫ�� �б��޽� ��������. All rights reserved </p>
+				<p class="copy"> Copyright (C) 충청남도 로컬푸드 학교급식 지원센터. All rights reserved </p>
 			</div>
 			
 		</div>
