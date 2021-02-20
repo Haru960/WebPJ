@@ -1,0 +1,272 @@
+@charset "EUC-KR";
+
+#sub_visual{
+	margin-top: -20px;
+	width: 100%;
+	height: 146px;
+	background: url("../img/Shideler_Grain.png") repeat-x center top;
+	position: relative;
+}
+#sub_visual div{
+	height: 146px;
+	width: 12.3%;
+	background-color: rgba(254, 254, 254, 0.8);
+	margin-left: 20%;
+}
+#sub_visual div h2{
+	text-align: center;
+	padding-top: 30%;
+	
+}
+.grid_container {
+	margin-left: 20%;
+	margin-right: 20%;
+	display: grid;
+	grid-template-columns: 20% 79%;
+	grid-template-rows: 50px 93%;
+	grid-gap: 10px;
+	padding: 10px;
+	min-height: 1000px;
+}
+
+.grid_container > div {
+	font-size: 15px;
+}
+.left_side {
+	margin-top: -10px;
+	margin-left: -10px;
+	border: solid 1px;
+	border-color:#D9D9D9;
+	grid-column: 1/2;
+	grid-row: 1/3;
+	text-align: center;
+}
+.left_side>input[type=radio] {
+	display: none;
+}
+#mypage-1:checked ~ .tab label:nth-child(1),
+#mywrite-2:checked ~ .tab label:nth-child(2),
+#mywrite-3:checked ~ .tab label:nth-child(3) {
+	background-color: rgba(0, 0, 0, 0.2);
+  	box-shadow: none;
+}
+
+.tab {
+  overflow: hidden;
+}
+.tab label {
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    user-select: none;
+    border: solid 1px;
+    border-color:#D9D9D9;
+    -webkit-user-select: none;
+}
+
+.right_side {
+	grid-column: 2/3;
+	grid-row: 1/3;
+	overflow: hidden;
+	border: solid 1px;
+    border-color:#D9D9D9;
+}
+
+.right_side .mywrite .search {
+	margin-top: 10px;
+	margin-right: 20px;
+	text-align: right;
+}
+
+.mypage{
+	position: relative;
+    z-index: 20;
+    max-width: 700px;
+    height: 100%;
+    margin: 0 auto;
+}
+tbody{
+	display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.info_header{
+	padding-top: 5%;
+	padding-bottom: 43px;
+}
+.myinfo{
+	position: relative;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-wrap: break-word;
+    word-break: keep-all;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+tr{
+	display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.myinfo .thcell{
+	padding: 32px 31px 32px;
+}
+.myinfo th{
+	color: #333;
+    border-right: 1px solid #e5e5e5;
+    background: #f9f9f9;
+}
+.myinfo td{
+	color: #565656;
+}
+.myinfo td,
+.myinfo th{
+	line-height: 14px;
+    text-align: left;
+    vertical-align: top;
+    letter-spacing: -1px;
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+}
+.myinfo > input{
+	min-height: 40px;
+	min-width: 30%;  
+	margin: 3%;
+	font-size: 14px;
+}
+
+.right_side .mywrite>table {
+	margin-top: 5%;
+	margin-left: 10%;
+	width: 80%;
+	height: auto;
+}
+tr{
+	border-bottom: 1px solid #444444;
+	height: auto;
+}
+#tr_first{
+	border-top: 2px	solid navy;
+	background-color: #f5f6f7;
+}
+#tr_first > td{
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px;
+	text-align: center;
+}
+.border_td{
+	border-left: 1px solid #444444;
+	border-right: 1px solid #444444;
+}
+.trs{
+	border-top: 1px solid #444444;
+}
+.trs > td{
+	padding: 5px;
+}
+#td_num{
+	text-align: center;
+} 
+#td_title{
+	text-align: left;
+}
+#td_uName{
+	text-align: center;
+}
+#td_date{
+	text-align: right;
+}
+
+#td_hit{
+	text-align: center;
+	border-left: 1px solid #444444;
+}
+#td_del{
+	text-align: center;
+	border-left: 1px solid #444444;
+}
+
+.right_side .mywrite .paging{
+	margin-top: 3%;
+	margin-left: 10%;
+	text-align: center;
+	font-size: 0;
+}
+.right_side .mywrite .paging .pagination li{
+	display: inline-block;
+	border: 2px solid #000;
+	margin-left: 10px;
+	font-size: 12px;
+	border-radius: 5px;
+}
+.right_side .mywrite .paging .pagination li:first-child{
+	margin-left: -50px;
+}
+.title_bd{
+	display: grid;
+	grid-template-columns: 80% 20%;
+}
+.answer{
+	text-align: right;
+	margin-right: 3px;
+}
+.answer > #yes{
+	color: orange;
+	font-size: 10px;
+}
+.answer > #no{
+	color: olive;
+	font-size: 10px;
+}
+
+/*under_side */
+.under_side{
+	margin-bottom: 1px;
+	grid-column: 1/3;
+	grid-row: 3/4;
+	background-color: #534639;
+	width: 100%;
+	height: 150px;
+	padding: 15px;
+	margin-top: 0px;
+}
+.al_wrap{
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 25% 50%;
+	margin-left: 20%;
+	margin-right: 20%;
+	z-index: 10;
+}
+.al_wrap div:first-child{
+	overflow: hidden;
+}
+.al_wrap address:first-child{
+	margin-top: 20px;
+}
+.al_wrap address{
+	margin-top: -20px;
+	font-size: 0.857em;
+	color: #bab5b0;
+	display: block;
+}
+
+.al_wrap .copy{
+	margin-top: -20px;
+	font-size: 0.857em;
+	color: #8a7869;
+	margin: 0;
+}
+
+
+
+

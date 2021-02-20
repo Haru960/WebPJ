@@ -1,0 +1,49 @@
+@charset "EUC-KR";
+
+body{
+	background-color: #f8f8f8;
+	height: 100%;
+	width: 93%;
+	overflow: scroll;
+}
+.login_big{
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+.logo_login{
+	font-size: 100px;
+	font-weight: bold;
+}
+
+
+.login_big > div{
+	position: absolute;
+	width: 23%;
+	height: auto;
+	left: 35%;
+	margin: auto;
+	background-color: auto;
+	text-align: center;
+	padding: 10px;
+	padding-top: 10%;
+	min-height: 500px;
+	min-width: 300px;
+	overflow: hidden;
+	
+}
+.login_big > div > form{
+	margin-top: 10%;
+}
+.login_big > div > form > input{
+	min-height: 40px;
+	min-width: 90%;  
+	margin: 3%;
+	font-size: 14px;
+}
+.login_big > div > form > div{
+	margin-top: 5%;
+	height: auto;
+	width: auto;
+}
